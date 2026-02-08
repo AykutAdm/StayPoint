@@ -1,0 +1,26 @@
+﻿@model UpdateStaffDto
+@{
+    ViewData["Title"] = "UpdateStaff";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="StaffId" />
+    <label>Personel Adı</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <br />
+    <label>Personel Ünvanı</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Instagram</label>
+    <input type="text" asp-for="InstagramUrl" class="form-control" />
+    <br />
+    <label>Twitter</label>
+    <input type="text" asp-for="TwitterUrl" class="form-control" />
+    <br />
+    <label>Facebook</label>
+    <input type="text" asp-for="FacebookUrl" class="form-control" />
+    <br />
+    <button class="btn btn-outline-success">Personeli Güncelle</button>
+</form>
+

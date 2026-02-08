@@ -1,0 +1,25 @@
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using StayPoint.EntityLayer.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StayPoint.DataAccessLayer.Concrete
+{
+    public class StayPointContext : IdentityDbContext<AppUser, AppRole, int>
+    {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=DESKTOP-D0QM5NB\\SQLEXPRESS;initial Catalog=StayPointDb;integrated security=true");
+        }
+
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Subscribe> Subscribes { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
+    }
+}
