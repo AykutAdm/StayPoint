@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StayPoint.DataAccessLayer.Concrete;
 
@@ -11,9 +12,10 @@ using StayPoint.DataAccessLayer.Concrete;
 namespace StayPoint.DataAccessLayer.Migrations
 {
     [DbContext(typeof(StayPointContext))]
-    partial class StayPointContextModelSnapshot : ModelSnapshot
+    [Migration("20260209185420_mig_add_Booking_entity")]
+    partial class mig_add_Booking_entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
