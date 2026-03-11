@@ -112,4 +112,5 @@ N-Tier mimarisinde katmanlar sırasıyla aşağıdan yukarıya bağımlılık ta
 
 <div align="center">
   <img src="Images/Db.png" alt="Database Diyagram" width="800" style="margin: 10px;">
+  <img src="Images/SQLTriggers.png" alt="Sql Trigger" width="800" style="margin: 10px;">
 </div>
