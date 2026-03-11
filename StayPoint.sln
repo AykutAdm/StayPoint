@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36717.8 d17.14
+VisualStudioVersion = 17.14.36717.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiConsume", "ApiConsume", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -18,6 +18,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayPoint.DtoLayer", "ApiConsume\StayPoint.DtoLayer\StayPoint.DtoLayer.csproj", "{E11E3B58-DA95-465D-A54D-00636375E3DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayPoint.WebUI", "Frontend\StayPoint.WebUI\StayPoint.WebUI.csproj", "{C59FBF42-3B9B-4946-A39E-4E5341239262}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{5AAD84A5-C5EC-4C30-8881-7D1C652F90C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RapidApiConsume", "RapidApi\RapidApiConsume\RapidApiConsume.csproj", "{71333043-83C9-49BC-9CBD-55BE778E914C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jwt", "Jwt", "{D5403F9F-9203-4CBF-B982-736E0895DCAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiJwt", "Jwt\WebApiJwt\WebApiJwt.csproj", "{9E50B16A-809C-4026-91C6-27186D58DB55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +57,14 @@ Global
 		{C59FBF42-3B9B-4946-A39E-4E5341239262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C59FBF42-3B9B-4946-A39E-4E5341239262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C59FBF42-3B9B-4946-A39E-4E5341239262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71333043-83C9-49BC-9CBD-55BE778E914C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71333043-83C9-49BC-9CBD-55BE778E914C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71333043-83C9-49BC-9CBD-55BE778E914C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71333043-83C9-49BC-9CBD-55BE778E914C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E50B16A-809C-4026-91C6-27186D58DB55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E50B16A-809C-4026-91C6-27186D58DB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E50B16A-809C-4026-91C6-27186D58DB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E50B16A-809C-4026-91C6-27186D58DB55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +76,8 @@ Global
 		{3E87A2F5-8EEE-4B19-8E7E-FC4FA376E670} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E11E3B58-DA95-465D-A54D-00636375E3DA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{C59FBF42-3B9B-4946-A39E-4E5341239262} = {40DA3BE8-6BE3-4B3B-AA83-C857D141DD04}
+		{71333043-83C9-49BC-9CBD-55BE778E914C} = {5AAD84A5-C5EC-4C30-8881-7D1C652F90C6}
+		{9E50B16A-809C-4026-91C6-27186D58DB55} = {D5403F9F-9203-4CBF-B982-736E0895DCAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A29A47EA-0AAC-402F-A521-20586A181BDC}

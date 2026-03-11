@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using StayPoint.DtoLayer.Dtos.AboutDtos;
 using StayPoint.DtoLayer.Dtos.BookingDtos;
+using StayPoint.DtoLayer.Dtos.GuestDtos;
 using StayPoint.DtoLayer.Dtos.RoomDtos;
 using StayPoint.DtoLayer.Dtos.ServiceDtos;
 using StayPoint.DtoLayer.Dtos.StaffDtos;
@@ -49,6 +50,11 @@ namespace StayPoint.WebApi.Mapping
             CreateMap<Booking, CreateBookingDto>().ReverseMap();
             CreateMap<Booking, UpdateBookingDto>().ReverseMap();
             CreateMap<Booking, GetByIdBookingDto>().ReverseMap();
+
+            CreateMap<Guest, ResultGuestDto>().ReverseMap();
+            CreateMap<Guest, CreateGuestDto>().ReverseMap();
+            CreateMap<Guest, UpdateGuestDto>().ReverseMap();
+            CreateMap<Guest, GetByIdGuestDto>().ReverseMap();
 
         }
     }

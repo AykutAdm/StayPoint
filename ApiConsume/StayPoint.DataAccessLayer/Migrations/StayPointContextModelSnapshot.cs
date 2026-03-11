@@ -207,12 +207,21 @@ namespace StayPoint.DataAccessLayer.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -255,6 +264,12 @@ namespace StayPoint.DataAccessLayer.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("WorkDepartment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WorkLocationID")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -264,6 +279,8 @@ namespace StayPoint.DataAccessLayer.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("WorkLocationID");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -327,6 +344,85 @@ namespace StayPoint.DataAccessLayer.Migrations
                     b.ToTable("Bookings");
                 });
 
+            modelBuilder.Entity("StayPoint.EntityLayer.Concrete.Contact", b =>
+                {
+                    b.Property<int>("ContactId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactId"), 1L, 1);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Mail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MessageCategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ContactId");
+
+                    b.HasIndex("MessageCategoryID");
+
+                    b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("StayPoint.EntityLayer.Concrete.Guest", b =>
+                {
+                    b.Property<int>("GuestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GuestId"), 1L, 1);
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("GuestId");
+
+                    b.ToTable("Guests");
+                });
+
+            modelBuilder.Entity("StayPoint.EntityLayer.Concrete.MessageCategory", b =>
+                {
+                    b.Property<int>("MessageCategoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageCategoryID"), 1L, 1);
+
+                    b.Property<string>("MessageCategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageCategoryID");
+
+                    b.ToTable("MessageCategories");
+                });
+
             modelBuilder.Entity("StayPoint.EntityLayer.Concrete.Room", b =>
                 {
                     b.Property<int>("RoomId")
@@ -367,6 +463,46 @@ namespace StayPoint.DataAccessLayer.Migrations
                     b.HasKey("RoomId");
 
                     b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("StayPoint.EntityLayer.Concrete.SendMessage", b =>
+                {
+                    b.Property<int>("SendMessageID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SendMessageID"), 1L, 1);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReceiverMail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReceiverName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderMail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SendMessageID");
+
+                    b.ToTable("SendMessages");
                 });
 
             modelBuilder.Entity("StayPoint.EntityLayer.Concrete.Service", b =>
@@ -473,6 +609,27 @@ namespace StayPoint.DataAccessLayer.Migrations
                     b.ToTable("Testimonials");
                 });
 
+            modelBuilder.Entity("StayPoint.EntityLayer.Concrete.WorkLocation", b =>
+                {
+                    b.Property<int>("WorkLocationID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WorkLocationID"), 1L, 1);
+
+                    b.Property<string>("WorkLocationCity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WorkLocationName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("WorkLocationID");
+
+                    b.ToTable("WorkLocations");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("StayPoint.EntityLayer.Concrete.AppRole", null)
@@ -522,6 +679,38 @@ namespace StayPoint.DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("StayPoint.EntityLayer.Concrete.AppUser", b =>
+                {
+                    b.HasOne("StayPoint.EntityLayer.Concrete.WorkLocation", "WorkLocation")
+                        .WithMany("AppUsers")
+                        .HasForeignKey("WorkLocationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WorkLocation");
+                });
+
+            modelBuilder.Entity("StayPoint.EntityLayer.Concrete.Contact", b =>
+                {
+                    b.HasOne("StayPoint.EntityLayer.Concrete.MessageCategory", "MessageCategory")
+                        .WithMany("Contacts")
+                        .HasForeignKey("MessageCategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MessageCategory");
+                });
+
+            modelBuilder.Entity("StayPoint.EntityLayer.Concrete.MessageCategory", b =>
+                {
+                    b.Navigation("Contacts");
+                });
+
+            modelBuilder.Entity("StayPoint.EntityLayer.Concrete.WorkLocation", b =>
+                {
+                    b.Navigation("AppUsers");
                 });
 #pragma warning restore 612, 618
         }

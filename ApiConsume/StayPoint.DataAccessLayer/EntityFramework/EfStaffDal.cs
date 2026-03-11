@@ -15,5 +15,19 @@ namespace StayPoint.DataAccessLayer.EntityFramework
         public EfStaffDal(StayPointContext context) : base(context)
         {
         }
+
+        public int GetStaffCount()
+        {
+            var context = new StayPointContext();
+            var value = context.Staffs.Count();
+            return value;
+        }
+
+        public List<Staff> Last4Staff()
+        {
+            var context = new StayPointContext();
+            var values = context.Staffs.OrderByDescending(x => x.StaffId).Take(4).ToList();
+            return values;
+        }
     }
 }

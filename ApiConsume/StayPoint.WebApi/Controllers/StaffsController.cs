@@ -69,5 +69,13 @@ namespace StayPoint.WebApi.Controllers
             _staffService.TDelete(value);
             return Ok("Silme işlemi başarılı.");
         }
+
+
+        [HttpGet("Last4Staff")]
+        public IActionResult Last4Staff()
+        {
+            var values = _staffService.TLast4Staff();
+            return Ok(values);
+        }
     }
 }

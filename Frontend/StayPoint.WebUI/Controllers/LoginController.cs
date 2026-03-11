@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using StayPoint.EntityLayer.Concrete;
 using StayPoint.WebUI.Dtos.LoginDtos;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace StayPoint.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly SignInManager<AppUser> _signInManager;

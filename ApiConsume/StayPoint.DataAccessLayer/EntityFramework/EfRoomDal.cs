@@ -15,5 +15,12 @@ namespace StayPoint.DataAccessLayer.EntityFramework
         public EfRoomDal(StayPointContext context) : base(context)
         {
         }
+
+        public int RoomCount()
+        {
+            var context = new StayPointContext();
+            var value = context.Rooms.Count();
+            return value;
+        }
     }
 }
